@@ -8,6 +8,19 @@
     <title>Document</title>
 </head>
 <body>
-
+    <h1>All Products</h1>
+    <form>
+        <input name="search" type="search">
+        <button type="submit">Поиск</button>
+    </form>
+    <body>
+    <u1 class="collection">
+        <li class="collection-item" data-th-each="product : ${products}">
+            <a data-th-href="@{/products/{id}(id=${product.id})}">
+                <span data-th-text="${product.name}"></span>
+            </a>
+        </li>
+    </u1>
+    </body>
 </body>
 </html>
