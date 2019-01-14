@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS products
 (
   id    INTEGER PRIMARY KEY AUTO_INCREMENT,
   name  VARCHAR(255) NOT NULL,
-  price INTEGER      NOT NULL
+  price INTEGER      NOT NULL,
+  picture nvarchar NOT NULL
 );

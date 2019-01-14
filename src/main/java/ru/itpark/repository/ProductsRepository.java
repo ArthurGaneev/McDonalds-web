@@ -17,23 +17,25 @@ public class ProductsRepository {
 
     public List<Product> findAll() {
         return jdbcTemplate.query(
-                "SELECT id,name,price FROM products",
+                "SELECT id,name,price,picture FROM products",
                 (rs, i) -> new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("price")
+                        rs.getInt("price"),
+                        rs.getString("picture")
                 )
         );
     }
 
     public Product findById(int id) {
         return jdbcTemplate.queryForObject(
-                "SELECT id,name,price FROM products WHERE id = :id ",
+                "SELECT id,name,price,picture FROM products WHERE id = :id ",
                 Map.of("id",id),
                 (rs, i) -> new Product(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("price")
+                        rs.getInt("price"),
+                        rs.getString("picture")
                 )
         );
     }

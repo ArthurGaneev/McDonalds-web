@@ -16,6 +16,7 @@
     <body>
     <u1 class="collection">
         <li class="collection-item" data-th-each="product : ${products}">
+            <img data-th-src="${product.picture}">
             <a data-th-href="@{/products/{id}(id=${product.id})}">
                 <span data-th-text="${product.name}"></span>
             </a>
