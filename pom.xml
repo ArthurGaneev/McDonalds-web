@@ -63,6 +63,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration><!-- Помогает собрать приложение в исполняемый jar -->
+                    <executable>true</executable>
+                </configuration>
             </plugin>
         </plugins>
     </build>
