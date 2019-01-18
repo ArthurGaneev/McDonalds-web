@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
     private int id;            //16 все поля заполняем,не делаем Getters Setters ,так как это делает Lombok,потом идем в сервис
-    private String name;
+    public String name;
     private int price;
     private String picture;
 

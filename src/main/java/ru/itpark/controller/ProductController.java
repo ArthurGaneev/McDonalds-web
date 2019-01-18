@@ -3,12 +3,11 @@ package ru.itpark.controller;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import ru.itpark.service.ProductsService;
 
+import java.util.List;
 
 
 //Отвечает за то чтобы принять запрос,подготовить ответ, в этом случае это будет имя view,которая отображется пользователю
@@ -34,7 +33,5 @@ public class ProductController {//Эксплуатирует ProductsService
         model.addAttribute("product", productsService.findById(id)); //Создаем метод 35 Alt+Ent
 
         return "product"; //34 делаем страницу product.html
-
     }
-
 }
