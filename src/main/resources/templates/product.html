@@ -1,11 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <head data-th-replace="fragments/layout :: headFragment(title= ${product.name})"></head>
 </head>
 <body>
 <div class="container">     <!-- container внутри контэйнера строка row внутри строки колонка шириной 12   -->
@@ -13,8 +9,10 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
+                    <img data-th-src="${product.picture}">
                     <span class="card-title" data-th-text="${product.name}"></span>
                     <p data-th-text="${product.price}"></p>
+                    <h6>рублей</h6>
                 </div>
             </div>
         </div>

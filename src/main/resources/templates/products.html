@@ -1,33 +1,32 @@
 <!doctype html> <!--     04    Создаем тело страницы-->
 <html lang="en">  <!--     24 прописывать name space   xmlns: th= "http thymleaf "-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <head data-th-replace="fragments/layout :: headFragment(title='All Products')"></head>
 </head>
 <body>
-<h1>All Products</h1>
+<h1>McDonalds Products</h1>
 <form>
-    <input name="search" type="search">
-    <button type="submit">Поиск</button>
+    <p><input type="search" name="q" placeholder="Поиск по сайту">
+        <a class="waves-effect waves-light btn">Поиск</a>
 </form>
 <body>
 <div class="container">
     <div class="row">
         <div class="col s12">
             <u1 class="collection">
-                <li class="collection-item" data-th-each="product : ${products}"> <!-- 25 выводим все значения в списки -->
+                <h1>Products</h1>
+                <li class="collection-item" data-th-each="product : ${products}">
+                    <!-- 25 выводим все значения в списки -->
                     <img data-th-src="${product.picture}"> <!-- data-th- альтернативный -->
                     <a data-th-href="@{/products/{id}(id=${product.id})}">
                         <!-- чтобы ссылась на страничку @, {id} некая
             переменная пути id и для нее такое задается значание (id=${product.id}
             -> 29 потом в материалайз
                  data-th-href= чтобы ссылался -->
-                        <span data-th-text="${product.name}"></span> <!--
-                26 выводим все значения в
-                 списки --> <!--
+                        <span data-th-text="${product.name}"></span>
+                        <!--
+                                        26 выводим все значения в
+                                         списки --> <!--
                  27 Убеждемся в pom.xml , что есть devtools -> Shift дважды нажимаем
                  28 registry  ->
                  compiler.automake.allow ставим  галочку ->идем в Build Project Automatically ставим  галочку "автоматически
@@ -38,6 +37,8 @@
         </div>
     </div>
 </div>
+
+
 </body>
 </body>
 </html>

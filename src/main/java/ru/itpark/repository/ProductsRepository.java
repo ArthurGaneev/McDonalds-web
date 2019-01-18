@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.itpark.domain.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 //Отвечает за хранение данных
@@ -28,7 +29,7 @@ public class ProductsRepository {
                         rs.getInt("price"),
                         rs.getString("picture")
                 )
-        );// 19  new Rowmapper +enter, 20 new Product 21 result set.getInt("id") и тд
+        );// 19  new Rowmapper +enter, 20 new Product 21 result set.getInt("id") и тд,меняем на лямбду
         // 22 Дважды Shift Plugins ->Lombok-> Install-> перезапуск
         //23 идем в products.html
 
@@ -37,7 +38,7 @@ public class ProductsRepository {
         // Rowmapper это такой объект ,который позволяет сопоставить результат result set к нашему объекту
     }
 
-    public Product findById(int id) {
+    public Product findById(int id) {  // 38 Будет просить jdbcTemplate сходить за объектом ,пишем SQL запрос
         return jdbcTemplate.queryForObject(
                 "SELECT id,name,price,picture FROM products WHERE id = :id ",
                 Map.of("id",id),
@@ -47,6 +48,6 @@ public class ProductsRepository {
                         rs.getInt("price"),
                         rs.getString("picture")
                 )
-        );
+        );// 39 Используем Map из параметров,затем создаем fragments -> layout.html
     }
 }

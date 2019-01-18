@@ -22,6 +22,6 @@ public class ProductsService {//Эксплуатирует ProductsRepository
 
     public Product findById(int id) {
         return productsRepository.findById(id);
-    }
+    } // 36 Будет просить у репозитория ID
 
 }

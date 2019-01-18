@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import ru.itpark.service.ProductsService;
+
+
 
 //Отвечает за то чтобы принять запрос,подготовить ответ, в этом случае это будет имя view,которая отображется пользователю
 @Controller               //01
@@ -28,7 +31,7 @@ public class ProductController {//Эксплуатирует ProductsService
 
     @GetMapping("/{id}") //33 метода,который позволит получать  одну страничку с породуктом  -> /products/1
     public String get(@PathVariable int id, Model model) {
-        model.addAttribute("product", productsService.findById(id));
+        model.addAttribute("product", productsService.findById(id)); //Создаем метод 35 Alt+Ent
 
         return "product"; //34 делаем страницу product.html
 
