@@ -4,7 +4,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.itpark.domain.Product;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 //Отвечает за хранение данных
@@ -50,4 +50,17 @@ public class ProductsRepository {
                 )
         );// 39 Используем Map из параметров,затем создаем fragments -> layout.html
     }
+
+    public List<Product> findByName(String name) {
+        return jdbcTemplate.query(
+                "SELECT id,name,price,picture FROM products",
+                (rs, i) -> new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("price"),
+                        rs.getString("picture")
+                )
+        );
+    }
+
 }

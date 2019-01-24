@@ -34,4 +34,11 @@ public class ProductController {//Эксплуатирует ProductsService
 
         return "product"; //34 делаем страницу product.html
     }
+    @GetMapping(value = "/search", params = "name") // Mapping - определяет то, что должно быть в запросе
+    public String search(@RequestParam String name, Model model) {
+        model.addAttribute("name", name); // чтобы отображать в поле поиска
+        model.addAttribute("items", productsService.findByName(name));
+        return "all";
+    }
+
 }

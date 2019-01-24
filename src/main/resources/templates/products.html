@@ -6,9 +6,12 @@
 <body>
 <h1>McDonalds Products</h1>
 <form>
-    <p><input type="search" name="q" placeholder="Поиск по сайту">
+    <form data-th-action="@{/search}">
+        <input name="name" type="search" class="item-search" data-th-value="${name}">
         <button class="waves-effect waves-light btn" type="submit">Поиск</button>
+    </form>
 </form>
+
 <body>
 <div class="container">
     <div class="row">
@@ -37,6 +40,12 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
 </body>
 </body>
 </html>

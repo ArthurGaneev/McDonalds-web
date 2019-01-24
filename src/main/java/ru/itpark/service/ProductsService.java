@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.itpark.domain.Product;
 import ru.itpark.repository.ProductsRepository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 //Отвечает за бизнес-логику
 @Service  //       07
@@ -25,4 +25,8 @@ public class ProductsService {//Эксплуатирует ProductsRepository
         return productsRepository.findById(id);
     } // 36 Будет просить у репозитория ID
 
+
+    public List<Product> findByName(String name) {
+        return productsRepository.findByName(name);
+    }
 }
