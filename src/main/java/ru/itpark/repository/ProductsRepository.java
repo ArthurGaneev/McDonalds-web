@@ -7,17 +7,15 @@ import ru.itpark.domain.Product;
 
 import java.util.List;
 import java.util.Map;
-//Отвечает за хранение данных
-@Repository  //10
+
+@Repository
 public class ProductsRepository {
-    private final NamedParameterJdbcTemplate jdbcTemplate;// Компонет private final NamedParameterJdbcTemplate jdbcTemplate
-    // Чтобы репозиторию работать с БД,нужен еще один компонент ,
-    // который умеет отправлять запросы в БД.
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+
 
     public ProductsRepository(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-    } // 11         Просим через конструктор у Spring, он понимает откуда взять куда подставить, затем возвращемся
-    // в контроллер и просим
+    }
 
     public List<Product> findAll() {
         //Вернем целый запрос
@@ -29,16 +27,13 @@ public class ProductsRepository {
                         rs.getInt("price"),
                         rs.getString("picture")
                 )
-        );// 19  new Rowmapper +enter, 20 new Product 21 result set.getInt("id") и тд,меняем на лямбду
-        // 22 Дважды Shift Plugins ->Lombok-> Install-> перезапуск
-        //23 идем в products.html
+        );
 
 
 
-        // Rowmapper это такой объект ,который позволяет сопоставить результат result set к нашему объекту
     }
 
-    public Product findById(int id) {  // 38 Будет просить jdbcTemplate сходить за объектом ,пишем SQL запрос
+    public Product findById(int id) {
         return jdbcTemplate.queryForObject(
                 "SELECT id,name,price,picture FROM products WHERE id = :id ",
                 Map.of("id",id),
@@ -48,7 +43,7 @@ public class ProductsRepository {
                         rs.getInt("price"),
                         rs.getString("picture")
                 )
-        );// 39 Используем Map из параметров,затем создаем fragments -> layout.html
+        );
     }
 
     public List<Product> findByName(String name) {

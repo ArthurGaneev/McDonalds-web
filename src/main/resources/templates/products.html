@@ -20,21 +20,12 @@
             <u1 class="collection">
                 <h1>Products</h1>
                 <li class="collection-item" data-th-each="product : ${products}">
-                    <!-- 25 выводим все значения в списки -->
-                    <img data-th-src="${product.picture}"> <!-- data-th- альтернативный -->
+                    <img data-th-src="${product.picture}">
                     <a data-th-href="@{/products/{id}(id=${product.id})}">
-                        <!-- чтобы ссылась на страничку @, {id} некая
-            переменная пути id и для нее такое задается значание (id=${product.id}
-            -> 29 потом в материалайз
-                 data-th-href= чтобы ссылался -->
+
                         <span data-th-text="${product.name}"></span>
-                        <!--
-                                        26 выводим все значения в
-                                         списки --> <!--
-                 27 Убеждемся в pom.xml , что есть devtools -> Shift дважды нажимаем
-                 28 registry  ->
-                 compiler.automake.allow ставим  галочку ->идем в Build Project Automatically ставим  галочку "автоматически
-                 изменяется приложение "      -->
+
+
                     </a>
                 </li>
             </u1>
